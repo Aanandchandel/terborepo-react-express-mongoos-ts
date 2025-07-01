@@ -1,20 +1,13 @@
-// src/routes.tsx (or in App.tsx directly)
-
-export const routes = [
+// routes.tsx
+import { createBrowserRouter } from 'react-router-dom';
+import Layout from './Layout';
+export const router = createBrowserRouter([
   {
     path: '/',
-    element: <><div className="">
-         <div className=" bg-blue-600 text-white flex items-center justify-center text-3xl font-bold">
-      ✅ Tailwind is working!
-    </div>
-        
-        
-        </div></>,
-    label: 'Home',
+    element: <Layout />,
+    children: [
+      { index: true, element: <>home</> },
+      { path: 'about', element: <>about</> },
+    ],
   },
-  {
-    path: '/about',
-    element: <>about</>,
-    label: 'About',
-  },
-];
+]);
